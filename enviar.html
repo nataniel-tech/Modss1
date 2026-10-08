@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Mod - Modss1</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            padding: 140px 0 60px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .form-group label .required {
+            color: var(--danger);
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 14px 18px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+            outline: none;
+            transition: var(--transition);
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-primary);
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .form-group .hint {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 6px;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .file-upload {
+            border: 2px dashed var(--border);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .file-upload:hover {
+            border-color: var(--accent-primary);
+            background: rgba(61, 220, 132, 0.05);
+        }
+        .file-upload .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .file-upload p {
+            color: var(--text-secondary);
+        }
+        .file-upload input {
+            display: none;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .checkbox-group input {
+            width: auto;
+            margin-top: 4px;
+        }
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: 400;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .info-box {
+            background: rgba(61, 220, 132, 0.1);
+            border: 1px solid rgba(61, 220, 132, 0.3);
+            border-radius: var(--radius);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        .info-box h3 {
+            color: var(--accent-primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .info-box ul {
+            color: var(--text-secondary);
+            line-height: 2;
+            padding-left: 20px;
+        }
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .form-container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">⛏️</span>
+                <span class="logo-text">Modss<span class="logo-accent">1</span></span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="mods.html">Mods</a></li>
+                <li><a href="categorias.html">Categorias</a></li>
+                <li><a href="como-instalar.html">Como Instalar</a></li>
+                <li><a href="enviar.html" class="btn-upload active">Enviar Mod</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>📤 Enviar seu Mod</h1>
+            <p>Compartilhe seu mod com a comunidade Minecraft Bedrock!</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container" style="padding-bottom: 80px;">
+        <!-- Info Box -->
+        <div class="info-box" style="max-width: 700px; margin: 0 auto 30px;">
+            <h3>📋 Antes de enviar</h3>
+            <ul>
+                <li>Certifique-se de que seu mod foi <strong>testado</strong> e funciona corretamente</li>
+                <li>O mod não deve conter <strong>vírus, malware</strong> ou conteúdo malicioso</li>
+                <li>Você deve ser o <strong>autor</strong> do mod ou ter permissão para distribuí-lo</li>
+                <li>Forneça uma <strong>descrição clara</strong> do que o mod faz</li>
+                <li>Arquivos aceitos: <code>.mcpack</code>, <code>.mcaddon</code>, <code>.mcworld</code>, <code>.mcskin</code></li>
+                <li>Tamanho máximo por arquivo: <strong>100 MB</strong></li>
+            </ul>
+        </div>
+
+        <!-- Form -->
+        <form class="form-container" id="uploadForm" onsubmit="enviarMod(event)">
+            <div class="form-group">
+                <label>Nome do Mod <span class="required">*</span></label>
+                <input type="text" name="nome" placeholder="Ex: Dragões Épicos" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Categoria <span class="required">*</span></label>
+                    <select name="categoria" required>
+                        <option value="">Selecione...</option>
+                        <option value="addon">🧩 Add-on</option>
+                        <option value="resource">🎨 Resource Pack</option>
+                        <option value="behavior">⚙️ Behavior Pack</option>
+                        <option value="map">🗺️ Mapa</option>
+                        <option value="skin">👤 Skin</option>
+                        <option value="utility">🛠️ Utilidade</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Versão do Minecraft <span class="required">*</span></label>
+                    <select name="versao" required>
+                        <option value="">Selecione...</option>
+                        <option value="1.21.x">1.21.x (mais recente)</option>
+                        <option value="1.20.x">1.20.x</option>
+                        <option value="1.19.x">1.19.x</option>
+                        <option value="1.18.x">1.18.x</option>
+                        <option value="outra">Outra versão</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Descrição Curta <span class="required">*</span></label>
+                <input type="text" name="descricaoCurta" placeholder="Uma frase que resume o mod (máx. 100 caracteres)" maxlength="100" required>
+                <p class="hint">Essa descrição aparece nos cards do mod no site</p>
+            </div>
+
+            <div class="form-group">
+                <label>Descrição Completa <span class="required">*</span></label>
+                <textarea name="descricao" placeholder="Descreva detalhadamente o que seu mod faz, quais recursos adiciona, como instalar, etc." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Arquivo do Mod <span class="required">*</span></label>
+                <label class="file-upload" for="fileInput">
+                    <div class="icon">📁</div>
+                    <p><strong>Clique para selecionar</strong> ou arraste o arquivo aqui</p>
+                    <p style="font-size: 0.85rem; margin-top: 10px;">.mcpack, .mcaddon, .mcworld, .mcskin (máx. 100MB)</p>
+                </label>
+                <input type="file" id="fileInput" name="arquivo" accept=".mcpack,.mcaddon,.mcworld,.mcskin" required onchange="mostrarArquivo(this)">
+                <p class="hint" id="fileName"></p>
+            </div>
+
+            <div class="form-group">
+                <label>Imagens do Mod (opcional)</label>
+                <label class="file-upload" for="imagesInput" style="padding: 25px;">
+                    <div class="icon" style="font-size: 2rem;">🖼️</div>
+                    <p>Clique para selecionar imagens (máx. 5 imagens)</p>
+                </label>
+                <input type="file" id="imagesInput" name="imagens" accept="image/*" multiple onchange="mostrarImagens(this)">
+                <p class="hint" id="imagesName"></p>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Seu Nome / Nome do Autor <span class="required">*</span></label>
+                    <input type="text" name="autor" placeholder="Como você quer ser creditado" required>
+                </div>
+                <div class="form-group">
+                    <label>Contato (E-mail ou Discord)</label>
+                    <input type="text" name="contato" placeholder="Para contato sobre o mod">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Tags (separadas por vírgula)</label>
+                <input type="text" name="tags" placeholder="Ex: dragões, fantasia, rpg, chefes, novos mobs">
+                <p class="hint">Tags ajudam as pessoas a encontrar seu mod nas buscas</p>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="termos" required>
+                    <label for="termos">Declaro que sou o autor deste mod ou tenho permissão para distribuí-lo, e que o conteúdo não viola direitos de terceiros nem contém material malicioso. <span class="required">*</span></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="regras">
+                    <label for="regras">Li e concordo com as regras de envio de mods do site</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-large" style="width: 100%; justify-content: center;">🚀 Enviar Mod para Revisão</button>
+        </form>
+
+        <div style="max-width: 700px; margin: 30px auto 0; text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+            <p>⏱️ Seu mod será revisado em até 48 horas. Você receberá um e-mail quando for aprovado.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">⛏️</span>
+                    <span class="logo-text">Modss<span class="logo-accent">1</span></span>
+                    <p>Os melhores mods para Minecraft Bedrock. Baixe, instale e jogue!</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navegação</h4>
+                    <a href="index.html">Início</a>
+                    <a href="mods.html">Mods</a>
+                    <a href="categorias.html">Categorias</a>
+                    <a href="como-instalar.html">Como Instalar</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Suporte</h4>
+                    <a href="como-instalar.html">Tutorial de Instalação</a>
+                    <a href="enviar.html">Enviar um Mod</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Contato</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Modss1 - Feito com ❤️ para a comunidade Minecraft</p>
+                <p>Este site não é afiliado à Mojang ou Microsoft</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        function mostrarArquivo(input) {
+            const fileName = document.getElementById('fileName');
+            if (input.files.length > 0) {
+                const file = input.files[0];
+                const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
+                fileName.innerHTML = `✅ Arquivo selecionado: <strong>${file.name}</strong> (${sizeMB} MB)`;
+                fileName.style.color = 'var(--accent-primary)';
+            }
+        }
+
+        function mostrarImagens(input) {
+            const imagesName = document.getElementById('imagesName');
+            if (input.files.length > 0) {
+                const names = Array.from(input.files).map(f => f.name).join(', ');
+                imagesName.innerHTML = `✅ ${input.files.length} imagem(ns) selecionada(s): ${names}`;
+                imagesName.style.color = 'var(--accent-primary)';
+            }
+        }
+
+        function enviarMod(event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const dados = Object.fromEntries(formData.entries());
+
+            console.log('Dados do formulário:', dados);
+
+            // Simular envio
+            mostrarToast('📤 Enviando seu mod...');
+
+            setTimeout(() => {
+                mostrarToast('✅ Mod enviado com sucesso! Aguarde a revisão.');
+                event.target.reset();
+                document.getElementById('fileName').innerHTML = '';
+                document.getElementById('imagesName').innerHTML = '';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

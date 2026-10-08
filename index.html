@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modss1 - Mods para Minecraft Bedrock</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">⛏️</span>
+                <span class="logo-text">Modss<span class="logo-accent">1</span></span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Início</a></li>
+                <li><a href="mods.html">Mods</a></li>
+                <li><a href="categorias.html">Categorias</a></li>
+                <li><a href="como-instalar.html">Como Instalar</a></li>
+                <li><a href="enviar.html" class="btn-upload">Enviar Mod</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">🎮 Minecraft Bedrock Edition</div>
+            <h1 class="hero-title">
+                Os Melhores Mods para<br>
+                <span class="gradient-text">Minecraft Bedrock</span>
+            </h1>
+            <p class="hero-description">
+                Baixe add-ons, packs de recursos, packs de comportamento e muito mais.
+                Mods testados e seguros para turbinar sua gameplay!
+            </p>
+            <div class="hero-search">
+                <input type="text" placeholder="🔍 Buscar mods..." id="heroSearch">
+                <button onclick="buscarMods()">Buscar</button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" id="totalMods">0</span>
+                    <span class="stat-label">Mods Disponíveis</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="totalDownloads">0</span>
+                    <span class="stat-label">Downloads</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Grátis</span>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="mods.html" class="btn btn-primary">Ver Todos os Mods</a>
+                <a href="como-instalar.html" class="btn btn-secondary">📖 Como Instalar</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Categorias -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Categorias</h2>
+            <div class="categories-grid">
+                <a href="mods.html?cat=addon" class="category-card">
+                    <span class="category-icon">🧩</span>
+                    <h3>Add-ons</h3>
+                    <p>Mods completos com novos itens, mobs e mecânicas</p>
+                </a>
+                <a href="mods.html?cat=resource" class="category-card">
+                    <span class="category-icon">🎨</span>
+                    <h3>Resource Packs</h3>
+                    <p>Texturas, sons e visuais para deixar o jogo único</p>
+                </a>
+                <a href="mods.html?cat=behavior" class="category-card">
+                    <span class="category-icon">⚙️</span>
+                    <h3>Behavior Packs</h3>
+                    <p>Mude o comportamento de mobs e mecânicas do jogo</p>
+                </a>
+                <a href="mods.html?cat=map" class="category-card">
+                    <span class="category-icon">🗺️</span>
+                    <h3>Mapas</h3>
+                    <p>Mundos prontos para explorar e se divertir</p>
+                </a>
+                <a href="mods.html?cat=skin" class="category-card">
+                    <span class="category-icon">👤</span>
+                    <h3>Skins</h3>
+                    <p>Aparências personalizadas para seu personagem</p>
+                </a>
+                <a href="mods.html?cat=utility" class="category-card">
+                    <span class="category-icon">🛠️</span>
+                    <h3>Utilidades</h3>
+                    <p>Ferramentas e mods que facilitam a jogabilidade</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mods em Destaque -->
+    <section class="featured-mods">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">⭐ Mods em Destaque</h2>
+                <a href="mods.html" class="view-all">Ver todos →</a>
+            </div>
+            <div class="mods-grid" id="featuredMods">
+                <!-- Carregados via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Mods Recentes -->
+    <section class="recent-mods">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🆕 Adicionados Recentemente</h2>
+                <a href="mods.html?sort=recent" class="view-all">Ver todos →</a>
+            </div>
+            <div class="mods-grid" id="recentMods">
+                <!-- Carregados via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Funciona -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Como Baixar e Instalar</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Escolha seu Mod</h3>
+                    <p>Navegue pelas categorias e encontre o mod ideal para você</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Baixe o Arquivo</h3>
+                    <p>Clique no botão de download e salve o arquivo .mcpack ou .mcaddon</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Instale no Minecraft</h3>
+                    <p>Abra o arquivo baixado ou importe pelo jogo. É fácil assim!</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Jogue!</h3>
+                    <p>Ative o mod nas configurações do mundo e aproveite</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Pronto para turbinar seu Minecraft?</h2>
+            <p>Escolha entre dezenas de mods incríveis e comece a jogar de um jeito novo!</p>
+            <a href="mods.html" class="btn btn-primary btn-large">Explorar Mods Agora</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">⛏️</span>
+                    <span class="logo-text">Modss<span class="logo-accent">1</span></span>
+                    <p>Os melhores mods para Minecraft Bedrock. Baixe, instale e jogue!</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navegação</h4>
+                    <a href="index.html">Início</a>
+                    <a href="mods.html">Mods</a>
+                    <a href="categorias.html">Categorias</a>
+                    <a href="como-instalar.html">Como Instalar</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Suporte</h4>
+                    <a href="como-instalar.html">Tutorial de Instalação</a>
+                    <a href="enviar.html">Enviar um Mod</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Contato</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Modss1 - Feito com ❤️ para a comunidade Minecraft</p>
+                <p>Este site não é afiliado à Mojang ou Microsoft</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

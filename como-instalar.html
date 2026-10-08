@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Instalar Mods - Modss1</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .tutorial-header {
+            padding: 140px 0 60px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        }
+        .tutorial-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .platform-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        .platform-tab {
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            min-width: 150px;
+        }
+        .platform-tab:hover,
+        .platform-tab.active {
+            border-color: var(--accent-primary);
+            background: rgba(61, 220, 132, 0.1);
+        }
+        .platform-tab .icon {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .platform-tab .name {
+            font-weight: 600;
+        }
+        .tutorial-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .tutorial-step {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            margin-bottom: 25px;
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+        }
+        .step-num {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-gradient);
+            color: var(--bg-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+        .step-content h3 {
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+        .step-content p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+        .step-content ul, .step-content ol {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+        .step-content code {
+            background: var(--bg-secondary);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: var(--accent-primary);
+        }
+        .tip-box {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin: 25px 0;
+        }
+        .tip-box h4 {
+            color: #ffc107;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .warning-box {
+            background: rgba(255, 82, 82, 0.1);
+            border: 1px solid rgba(255, 82, 82, 0.3);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin: 25px 0;
+        }
+        .warning-box h4 {
+            color: #ff5252;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .file-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .file-type-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 25px;
+            text-align: center;
+        }
+        .file-type-card .ext {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .file-type-card h4 {
+            margin-bottom: 8px;
+        }
+        .file-type-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">⛏️</span>
+                <span class="logo-text">Modss<span class="logo-accent">1</span></span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="mods.html">Mods</a></li>
+                <li><a href="categorias.html">Categorias</a></li>
+                <li><a href="como-instalar.html" class="active">Como Instalar</a></li>
+                <li><a href="enviar.html" class="btn-upload">Enviar Mod</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="tutorial-header">
+        <div class="container">
+            <h1>📖 Como Instalar Mods</h1>
+            <p>Guia completo passo a passo para instalar mods no Minecraft Bedrock</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container" style="padding-bottom: 80px;">
+        <!-- File Types -->
+        <h2 class="section-title">Tipos de Arquivos de Mod</h2>
+        <div class="file-types">
+            <div class="file-type-card">
+                <div class="ext">📦</div>
+                <h4>.mcpack</h4>
+                <p>Resource Pack - texturas, sons e visuais</p>
+            </div>
+            <div class="file-type-card">
+                <div class="ext">⚙️</div>
+                <h4>.mcpack</h4>
+                <p>Behavior Pack - mecânicas e código</p>
+            </div>
+            <div class="file-type-card">
+                <div class="ext">🧩</div>
+                <h4>.mcaddon</h4>
+                <p>Add-on completo (Resource + Behavior)</p>
+            </div>
+            <div class="file-type-card">
+                <div class="ext">🗺️</div>
+                <h4>.mcworld</h4>
+                <p>Mapa/Mundo completo do jogo</p>
+            </div>
+            <div class="file-type-card">
+                <div class="ext">👤</div>
+                <h4>.mcskin</h4>
+                <p>Skin/aparência do personagem</p>
+            </div>
+        </div>
+
+        <!-- Platform Tabs -->
+        <h2 class="section-title">Escolha sua Plataforma</h2>
+        <div class="platform-tabs">
+            <div class="platform-tab active" onclick="showTab('mobile')">
+                <span class="icon">📱</span>
+                <span class="name">Celular/Tablet</span>
+            </div>
+            <div class="platform-tab" onclick="showTab('windows')">
+                <span class="icon">🪟</span>
+                <span class="name">Windows 10/11</span>
+            </div>
+            <div class="platform-tab" onclick="showTab('console')">
+                <span class="icon">🎮</span>
+                <span class="name">Console (Xbox/PS/Switch)</span>
+            </div>
+        </div>
+
+        <!-- Mobile Tutorial -->
+        <div class="tutorial-content tab-content active" id="tab-mobile">
+            <h2 class="section-title">📱 Instalação no Celular/Tablet (Android/iOS)</h2>
+
+            <div class="tutorial-step">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h3>Baixe o arquivo do mod</h3>
+                    <p>No nosso site, clique no botão <strong>"Baixar"</strong> do mod desejado. O arquivo será baixado para a pasta de Downloads do seu dispositivo.</p>
+                    <p>Tipos de arquivo comuns: <code>.mcpack</code>, <code>.mcaddon</code>, <code>.mcworld</code></p>
+                </div>
+            </div>
+
+            <div class="tutorial-step">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h3>Abra o arquivo com o Minecraft</h3>
+                    <p>Após o download, toque no arquivo baixado. Se aparecer uma lista de apps, escolha <strong>Minecraft</strong>. Caso contrário:</p>
+                    <ol>
+                        <li>Abra o app de <strong>Arquivos</strong> (Gerenciador de Arquivos)</li>
+                        <li>Navegue até a pasta <strong>Downloads</strong></li>
+                        <li>Toque no arquivo do mod</li>
+                        <li>Selecione <strong>Minecraft</strong> para abrir</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="tutorial-step">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h3>Aguarde a importação</h3>
+                    <p>O Minecraft abrirá automaticamente e mostrará uma mensagem de importação. Aguarde o processo ser concluído.</p>
+                </div>
+            </div>
+
+            <div class="tutorial-step">
+                <div class="step-num">4</div>
+                <div class="step-content">
+                    <h3>Ative o mod no mundo</h3>
+                    <ol>
+                        <li>No Minecraft, vá em <strong>Configurações</strong> (ícone de engrenagem)</li>
+                        <li>Role até <strong>Packs de Recursos</strong> ou <strong>Add-ons</strong></li>
+                        <li>Encontre o mod instalado e clique em <strong>+</strong> para ativar</li>
+                        <li>Para mapas (.mcworld), vá em <strong>Jogar → Mundos → Importar</strong></li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="tutorial-step">
+                <div class="step-num">5</div>
+                <div class="step-content">
+                    <h3>Pronto! Jogue e aproveite</h3>
+                    <p>Seu mod está instalado e ativado. Crie um novo mundo ou entre em um mundo existente para começar a usar!</p>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <h4>💡 Dica</h4>
+                <p>Para skins, vá em <strong>Perfil → Editar Personagem → Skins Clássicas</strong> e escolha a skin baixada.</p>
+            </div>
+        </div>
+
+        <!-- Windows Tutorial -->
+        <div class="tutorial-content tab-content" id="tab-windows">
+            <h2 class="section-title">🪟 Instalação no Windows 10/11</h2>
+
+            <div class="tutorial-step">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h3>Baixe o arquivo do mod</h3>
+                    <p>Clique em <strong>"Baixar"</strong> no mod desejado. O arquivo será salvo na pasta Downloads do seu computador.</p>
+                </div>
+            </div>
+
+            <div class="tutorial-step">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h3>Método 1: Duplo clique (mais fácil)</h3>
+                    <p>Localize o arquivo baixado e <strong dê um duplo clique</strong> nele. O Minecraft Bedrock abrirá automaticamente e importará o mod.</p>
+                </div>
+            </div>
+
+            <div class="tutorial-step">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h3>Método 2: Arrastar para o Minecraft</h3>
+                    <p>Se o método 1 não funcionar:</p>
+                    <ol>
+                        <li>Abra o Minecraft Bedrock</li>
+                        <li>Vá em <strong>Configurações → Packs de Recursos</strong></li>
+                        <li>Clique em <strong>Importar</strong> ou arraste o arquivo para a janela do jogo</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="tutorial-step">
+                <div class="step-num">4</div>
+                <div class="step-content">
+                    <h3>Ative o mod</h3>
+                    <ol>
+                        <li>No menu principal, clique em <strong>Configurações</strong> (engrenagem)</li>
+                        <li>Selecione <strong>Packs de Recursos</strong> (para texturas) ou <strong>Add-ons</strong> (para mods completos)</li>
+                        <li>Expanda <strong>Meus Packs</strong> e clique no mod</li>
+                        <li>Clique em <strong>+</strong> para ativar</li>
+                        <li>Para Behavior Packs, também vá em <strong>Experimentos</strong> se necessário</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <h4>💡 Dica para Windows</h4>
+                <p>Você também pode colocar os arquivos manualmente na pasta: <code>%localappdata%\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\resource_packs</code> (para resource packs) ou <code>...\behavior_packs</code> (para behavior packs).</p>
+            </div>
+        </div>
+
+        <!-- Console Tutorial -->
+        <div class="tutorial-content tab-content" id="tab-console">
+            <h2 class="section-title">🎮 Instalação no Console (Xbox/PlayStation/Switch)</h2>
+
+            <div class="warning-box">
+                <h4>⚠️ Importante</h4>
+                <p>Nos consoles, a instalação de mods é mais limitada. A maioria dos add-ons funciona, mas requer alguns passos extras. Mapas e skins funcionam normalmente.</p>
+            </div>
+
+            <div class="tutorial-step">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h3>Transfira o arquivo para o console</h3>
+                    <p>Use um dos métodos abaixo:</p>
+                    <ul>
+                        <li><strong>OneDrive/Microsoft:</strong> Salve o arquivo no OneDrive pelo celular/computador e abra no Xbox</li>
+                        <li><strong>USB (Xbox):</strong> Copie o arquivo para um pendrive e conecte no Xbox</li>
+                        <li><strong>Realms:</strong> Crie um Realm e adicione o conteúdo por lá</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tutorial-step">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h3>Abra o arquivo no Minecraft</h3>
+                    <ol>
+                        <li>No console, abra o app do Minecraft</li>
+                        <li>Vá em <strong>Configurações → Packs de Recursos</strong></li>
+                        <li>Role até o final e clique em <strong>Importar</strong></li>
+                        <li>Selecione o arquivo transferido</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="tutorial-step">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h3>Ative e jogue</h3>
+                    <p>Após importar, ative o pack/add-on nas configurações e entre no seu mundo!</p>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <h4>💡 Dica para Realms</h4>
+                <p>A forma mais fácil de usar mods no console é através do <strong>Minecraft Realms</strong>. Crie um Realm no celular/computador, adicione os mods lá, e jogue no console conectado ao mesmo Realm.</p>
+            </div>
+        </div>
+
+        <!-- Troubleshooting -->
+        <h2 class="section-title" style="margin-top: 60px;">🔧 Problemas Comuns</h2>
+
+        <div class="tutorial-step">
+            <div class="step-num">❓</div>
+            <div class="step-content">
+                <h3>O arquivo não abre com o Minecraft</h3>
+                <p>Verifique se o arquivo não está compactado (.zip). Se estiver, extraia primeiro. Também confirme se você tem a versão correta do Minecraft Bedrock instalada.</p>
+            </div>
+        </div>
+
+        <div class="tutorial-step">
+            <div class="step-num">❓</div>
+            <div class="step-content">
+                <h3>O mod não aparece na lista</h3>
+                <p>Certifique-se de que ativou tanto o Resource Pack quanto o Behavior Pack (para .mcaddon). Alguns mods precisam que <strong>"Experimentos"</strong> esteja ativado nas configurações do mundo.</p>
+            </div>
+        </div>
+
+        <div class="tutorial-step">
+            <div class="step-num">❓</div>
+            <div class="step-content">
+                <h3>Erro de versão incompatível</h3>
+                <p>O mod pode ter sido feito para uma versão diferente do Minecraft. Verifique a versão necessária na página do mod e atualize seu jogo se preciso.</p>
+            </div>
+        </div>
+
+        <div class="tutorial-step">
+            <div class="step-num">❓</div>
+            <div class="step-content">
+                <h3>O jogo fecha ou trava</h3>
+                <p>O mod pode ser pesado para seu dispositivo. Tente fechar outros apps, ou use um mod mais leve. Em servidores, verifique se o mod é permitido pelas regras.</p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta" style="margin-top: 60px; padding: 60px 30px; background: var(--bg-card); border-radius: var(--radius-lg);">
+            <h2>Pronto para começar?</h2>
+            <p>Agora que você sabe instalar, que tal baixar seu primeiro mod?</p>
+            <a href="mods.html" class="btn btn-primary btn-large">Explorar Mods</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">⛏️</span>
+                    <span class="logo-text">Modss<span class="logo-accent">1</span></span>
+                    <p>Os melhores mods para Minecraft Bedrock. Baixe, instale e jogue!</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navegação</h4>
+                    <a href="index.html">Início</a>
+                    <a href="mods.html">Mods</a>
+                    <a href="categorias.html">Categorias</a>
+                    <a href="como-instalar.html">Como Instalar</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Suporte</h4>
+                    <a href="como-instalar.html">Tutorial de Instalação</a>
+                    <a href="enviar.html">Enviar um Mod</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Contato</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Modss1 - Feito com ❤️ para a comunidade Minecraft</p>
+                <p>Este site não é afiliado à Mojang ou Microsoft</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        function showTab(platform) {
+            // Atualizar tabs
+            document.querySelectorAll('.platform-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+
+            // Mostrar conteúdo correto
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(`tab-${platform}`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
